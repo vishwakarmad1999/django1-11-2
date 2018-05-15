@@ -1,6 +1,7 @@
 import random
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views import View
 
 # Create your views here.
 
@@ -14,7 +15,11 @@ def home(request):
 				"bool_item" : True,
 				"list" : list(range(num))}
 
-	return render(request, "base.html", context)
+	return render(request, "home.html", context)
 
 def about(request):
 	return render(request, "about.html", {})
+
+class ContactView(View):
+	def get(self, request, *args, **kwargs):
+		return render(request, "contact.html", {})

@@ -1,19 +1,8 @@
-<!DOCTYPE HTML>
-		<head>
-			<title>Home</title>
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+{% extends "base.html" %}
 
-			<style type="text/css">
-				span {
-					font-size: 150%;
-				}
-			</style>
-		</head>
-		<html>
-			<body>
-				<div class='container text-center'>
-					<h1 class="display-1">About us</h1>
-					<p class="display-4">We will surely tell you about us buddy</p>
-				</div>
-			</body>
-		</html>
+{% block title %}About | MuyPicky.com{% endblock title %}
+
+{% block content %}
+	<h1 class="display-2">About</h1>
+	<p class="display-4">We will surely tell you about us <span class='text-danger'>buddy</span></p>
+{% endblock content %}
