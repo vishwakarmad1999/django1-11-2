@@ -1,0 +1,612 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"num",
+				"number_passed"
+			],
+			[
+				"new",
+				"new_node"
+			],
+			[
+				"d",
+				"do\tDo While Loop"
+			],
+			[
+				"ma",
+				"main\tmain()"
+			],
+			[
+				"pen",
+				"pentagonal_j"
+			],
+			[
+				"pentago",
+				"pentagonal_i"
+			],
+			[
+				"pent",
+				"pentagonal_j"
+			],
+			[
+				"pentag",
+				"pentagonal_i"
+			],
+			[
+				"pe",
+				"pentagonal_i"
+			],
+			[
+				"for",
+				"fore\tfor (each)"
+			],
+			[
+				"try",
+				"try\tTry/Except/Finally"
+			],
+			[
+				"w",
+				"weight"
+			],
+			[
+				"fa",
+				"fact_of_n"
+			],
+			[
+				"hea",
+				"header\tTag"
+			],
+			[
+				"fun",
+				"fun\tfunction …"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"margi",
+				"margin-right"
+			],
+			[
+				"text",
+				"text"
+			],
+			[
+				"back",
+				"background-image"
+			],
+			[
+				"html",
+				"htmlspecialchars"
+			],
+			[
+				"url",
+				"urlencode"
+			],
+			[
+				"bac",
+				"background-image"
+			],
+			[
+				"margin-",
+				"margin-left"
+			],
+			[
+				"php",
+				"php"
+			],
+			[
+				"req",
+				"req1\trequire_once …"
+			],
+			[
+				"input-",
+				"input-group-text"
+			],
+			[
+				"sect",
+				"section1"
+			],
+			[
+				"bread",
+				"breadcrumb-item"
+			],
+			[
+				"dro",
+				"dropdown-divider"
+			],
+			[
+				"ju",
+				"jumbotron"
+			],
+			[
+				"t",
+				"currentColor"
+			],
+			[
+				"text-",
+				"text-decoration-color"
+			],
+			[
+				"btn-outli",
+				"btn-outline-secondary"
+			],
+			[
+				"carou",
+				"carousel-item"
+			],
+			[
+				"opt",
+				"option\tTag"
+			],
+			[
+				"rad",
+				"radio-inline"
+			],
+			[
+				"progre",
+				"progress-bar"
+			],
+			[
+				"contan",
+				"container-fluid"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"btn-outlin",
+				"btn-outline-light"
+			],
+			[
+				"pro",
+				"progress-bar-animated"
+			],
+			[
+				"content",
+				"justify-content-center"
+			],
+			[
+				"dis",
+				"display-4"
+			],
+			[
+				"just",
+				"justify-content-center"
+			],
+			[
+				"drop",
+				"dropdown-item"
+			],
+			[
+				"dropu",
+				"dropdown-menu"
+			],
+			[
+				"btn-",
+				"btn-lg"
+			],
+			[
+				"dropd",
+				"dropdown-header"
+			],
+			[
+				"btn-out",
+				"btn-outline-secondary"
+			],
+			[
+				"bloc",
+				"blockquote-reverse"
+			],
+			[
+				"a",
+				"a\tTag"
+			],
+			[
+				"li",
+				"list-group-item-action"
+			],
+			[
+				"list-g",
+				"list-group-item"
+			],
+			[
+				"progr",
+				"progress-bar-animated"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"prog",
+				"progress-bar"
+			],
+			[
+				"bg-",
+				"bg-success"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"dropdo",
+				"dropdown-toggle"
+			],
+			[
+				"tex",
+				"text-uppercase"
+			],
+			[
+				"disp",
+				"display-4"
+			],
+			[
+				"but",
+				"button"
+			],
+			[
+				"blo",
+				"blockquote-footer"
+			],
+			[
+				"row",
+				"row"
+			],
+			[
+				"con",
+				"content"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"bl",
+				"blockquote-footer"
+			],
+			[
+				"me",
+				"meta\tTag"
+			],
+			[
+				"real_escap",
+				"mysql_real_escape_string"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"count",
+				"countDownNumber"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"rock",
+				"rocket-state3"
+			],
+			[
+				"roc",
+				"rocket-state1"
+			],
+			[
+				"backgr",
+				"background-image"
+			],
+			[
+				"rando",
+				"randomNumber"
+			],
+			[
+				"ran",
+				"randomNumber"
+			],
+			[
+				"coun",
+				"countDownNumber"
+			],
+			[
+				"backgroun",
+				"background-color"
+			],
+			[
+				"on",
+				"ondblclick\tAttr"
+			],
+			[
+				"is",
+				"isTurnedOn"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"Indentation: Convert to Spaces"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 248.0,
+		"history":
+		[
+			"var a = 5;"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Dell/Desktop/Dev/trydjango-11/src/muypicky/settings/base.py",
+		"/C/Users/Dell/Desktop/Dev/trydjango-11/src/muypicky/settings/__init__.py",
+		"/C/Users/Dell/Desktop/Dev/trydjango-11/src/muypicky/settings/production.py",
+		"/C/Users/Dell/Desktop/Dev/trydjango-11/src/muypicky/settings/local.py",
+		"/D/DEV/Songs/01 - Kar Gayi Chull - DownloadMing.SE.mp3",
+		"/C/xampp/htdocs/contact_manager/private/initialize.php",
+		"/C/xampp/htdocs/contact_manager/private/shared/user_header.php",
+		"/C/xampp/htdocs/contact_manager/public/user/user_details/register.php",
+		"/C/xampp/htdocs/contact_manager/public/user/user_details/home.php",
+		"/C/xampp/htdocs/contact_manager/private/shared/footer.php",
+		"/C/xampp/htdocs/contact_manager/public/index.php",
+		"/C/xampp/htdocs/contact_manager/public/user/contact/search",
+		"/C/xampp/htdocs/contact_manager/public/user/contact/search.php",
+		"/D/DEV/algorithms/Pentagonal.java",
+		"/D/DEV/py4e/array.py",
+		"/D/DEV/algorithms/Array.java",
+		"/D/DEV/py4e/array",
+		"/D/DEV/algorithms/EnumDemo.java",
+		"/D/DEV/py4e/Enum.java",
+		"/C/Program Files/JetBrains/PyCharm 2018.1/bin/pycharm64.exe",
+		"/D/DEV/py4e/Chapter 2/Pentagonal.java",
+		"/D/DEV/py4e/n_queens.py",
+		"/C/Users/Dell/Downloads/9514143a-c-input-9513570.txt.clean.txt",
+		"/D/DEV/py4e/LuckyMonk.py",
+		"/D/DEV/algorithms/Knapsack.java",
+		"/D/DEV/algorithms/LuckyMonk.py",
+		"/D/DEV/py4e/Knapsack.java",
+		"/D/DEV/algorithms/Fact.c",
+		"/C/Users/Dell/Desktop/algoritms/Factorial.java",
+		"/C/Users/Dell/Desktop/algoritms/Factorial",
+		"/C/Users/Dell/Desktop/algoritms/Factorial.py",
+		"/D/DEV/py4e/first.py",
+		"/C/TC/BIN/binarysearchtree.cpp",
+		"/C/TC/BIN/BINARY.CPP",
+		"/C/xampp/htdocs/contact_manager/private/shared/header.php",
+		"/D/DEV/hellotuts/hellotuts/resources/views/welcome.blade.php",
+		"/D/DEV/hellotuts/hellotuts/.gitignore",
+		"/D/DEV/hellotuts/hellotuts/resources/views/student_register.blade.php",
+		"/C/xampp/htdocs/Practice/index.html",
+		"/D/DEV/hellotuts/hellotuts/resources/include/header.blade.php",
+		"/D/DEV/hellotuts/hellotuts/routes/web.php",
+		"/D/DEV/hellotuts/hellotuts/resources/views/about.blade.php",
+		"/C/Users/Dell/hellotuts/routes/web.php",
+		"/C/Users/Dell/hellotuts/resources/views/student_register.blade.php",
+		"/C/Users/Dell/Desktop/student_registration.html",
+		"/C/Users/Dell/Desktop/demo.py",
+		"/C/xampp/htdocs/contact_manager/public/user/user_details/service.php",
+		"/C/xampp/htdocs/contact_manager/public/user/logout.php",
+		"/C/Users/Dell/Desktop/Main.java",
+		"/C/xampp/htdocs/contact_manager/private/crud.php",
+		"/C/Users/Dell/Desktop/index.html",
+		"/C/xampp/htdocs/contact_manager/private/functions.php",
+		"/C/xampp/htdocs/contact_manager/public/user/index.php",
+		"/C/xampp/htdocs/contact_manager/public/user/user_details/new.php",
+		"/C/xampp/htdocs/contact_manager/public/user/user_details/validate.php",
+		"/C/xampp/htdocs/contact_manager/private/db_credentials.php",
+		"/C/xampp/htdocs/contact_manager/private/database.php",
+		"/C/xampp/htdocs/Practice/search.php",
+		"/C/xampp/htdocs/Practice/new.htm",
+		"/C/Users/Dell/Desktop/search.php",
+		"/C/Users/Dell/Desktop/HTML/webpage.html",
+		"/C/xampp/htdocs/globe_bank/fb.php",
+		"/C/Users/Dell/Desktop/facebook.php",
+		"/C/Users/Dell/blog/routes/web.php",
+		"/C/Users/Dell/blog/resources/views/about.blade.php",
+		"/C/Users/Dell/blog/config/database.php",
+		"/C/Users/Dell/blog/.env",
+		"/C/Users/Dell/blog/database/migrations/2018_02_24_140659_create_tasks_table.php",
+		"/C/Users/Dell/blog/database/migrations/2018_02_24_135823_create_tasks_table.php",
+		"/C/Users/Dell/blog/database/migrations/2018_02_24_140135_help.php",
+		"/C/Users/Dell/blog/database/migrations/2014_10_12_100000_create_password_resets_table.php",
+		"/C/Users/Dell/blog/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/C/Users/Dell/blog/resources/views/welcome.blade.php",
+		"/C/Users/Dell/Desktop/Ex_Files_PHP_MySQL_EssT_Basics/Exercise Files/Chapter_08/08_01/globe_bank/public/staff/subjects/new.php",
+		"/C/Users/Dell/Desktop/Ex_Files_PHP_MySQL_EssT_Basics/Exercise Files/Chapter_08/08_02/globe_bank/private/validation_functions.php",
+		"/C/Users/Dell/Desktop/Ex_Files_PHP_MySQL_EssT_Basics/Exercise Files/Chapter_08/08_01/globe_bank/private/query_functions.php",
+		"/C/xampp/htdocs/globe_bank/public/index.php",
+		"/C/xampp/htdocs/globe_bank/private/initialize.php",
+		"/C/xampp/htdocs/globe_bank/private/functions.php",
+		"/C/xampp/htdocs/Content/home.html",
+		"/C/xampp/htdocs/Content/index.php",
+		"/C/Users/Dell/Desktop/js-rocket/js/script.js",
+		"/C/Users/Dell/Desktop/js-rocket/css/style.css",
+		"/C/Users/Dell/Desktop/js-rocket/index.html",
+		"/C/Users/Dell/Desktop/PHP/MyFirstPHP.php",
+		"/C/Users/Dell/Desktop/js-rocket/credit.html",
+		"/C/Users/Dell/Desktop/js-rocket/rocket.html",
+		"/C/Users/Dell/Desktop/js-rocket/css/rocket.css",
+		"/C/Users/Dell/Desktop/js-rocket/js/rocket.js",
+		"/C/Users/Dell/Documents/GitHub/js-rocket/index.html",
+		"/C/Users/Dell/Desktop/JS-ROCKET/index.html"
+	],
+	"find":
+	{
+		"height": 42.0
+	},
+	"find_in_files":
+	{
+		"height": 155.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 42.0
+	},
+	"input":
+	{
+		"height": 54.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "MuyPicky.sublime-project",
+	"replace":
+	{
+		"height": 80.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"web",
+				"routes\\web.php"
+			],
+			[
+				"databas",
+				"config\\database.php"
+			],
+			[
+				"",
+				".env"
+			],
+			[
+				"v/abou",
+				"resources\\views\\about.blade.php"
+			],
+			[
+				"r/web",
+				"routes\\web.php"
+			],
+			[
+				"v/welc",
+				"resources\\views\\welcome.blade.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 204.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
