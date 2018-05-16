@@ -19,7 +19,9 @@ from restaurant.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', home),
-    url(r'^about', about),
+    url(r'^$', HomeView.as_view()),
+    url(r'^about', AboutView.as_view()),
     url(r'^contact', ContactView.as_view()),
+    url(r'^creator2', Creator_2_View.as_view()),
+    url(r'^$', Creator_2_View.as_view(), name='creator2') 
 ]
