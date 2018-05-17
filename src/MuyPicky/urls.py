@@ -20,8 +20,11 @@ from restaurant.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view()),
-    url(r'^about', AboutView.as_view()),
-    url(r'^contact', ContactView.as_view()),
-    url(r'^creator2', Creator_2_View.as_view()),
-    url(r'^$', Creator_2_View.as_view(), name='creator2') 
+    url(r'^about/$', AboutView.as_view()),
+    url(r'^contact/$', ContactView.as_view()),
+    url(r'^creator2/$', Creator_2_View.as_view()),
+    url(r'^creator/$', CreatorView.as_view()),    
+    url(r'^restaurant/veg/$', VegRestaurantListView.as_view()),    
+    url(r'^restaurant/non-veg/$', NonVegRestaurantListView.as_view()),    
+    url(r'^restaurant/$', RestaurantListView.as_view()),    
 ]

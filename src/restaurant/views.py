@@ -1,12 +1,32 @@
-import random
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
+from .models import RestaurantLocation
 
 # Create your views here.
 
+# Function based view
+'''	
+def restaurant_listview(request):
+	template_name = 'restaurants/restaurant_list.html'
+
+	queryset = RestaurantLocation.objects.all()
+
+	context = {
+		"object_list" : queryset
+	}
+
+	return render(request, template_name, context)
+'''
+
+
 # Class based view (Base -> View)
+
+class HomeView(View):
+	def get(self, request, **vargs):
+		return render(request, "home.html", {})
+
+
 class ContactView(View):
 	def get(self, request, *args, **kwargs):
 		return render(request, "contact.html", {})
@@ -29,22 +49,6 @@ class CreatorView(TemplateView):
 		return context
 
 
-class HomeView(TemplateView):
-	template_name = "home.html"
-
-	def get_context_data(self, **kwargs):
-		context = super(HomeView, self).get_context_data(**kwargs)	
-
-		num = random.randint(0, 1000)
-
-		context = {"lang" : "Python, yes...", 
-					"num" : num, 
-					"bool_item" : True,
-					"list" : list(range(num))}
-
-		return context
-
-
 class Creator_2_View(TemplateView):
 	template_name = 'creator2.html'
 
@@ -56,3 +60,23 @@ class Creator_2_View(TemplateView):
 		}
 
 		return context
+
+
+# Generic List View
+
+class RestaurantListView(ListView):
+	queryset = RestaurantLocation.objects.all()
+
+	template_name = 'restaurants/restaurant_list.html'
+
+
+class VegRestaurantListView(ListView):
+	queryset = RestaurantLocation.objects.filter(category__iexact = 'veg only')
+
+	template_name = 'restaurants/restaurant_list.html'
+
+
+class NonVegRestaurantListView(ListView):
+	queryset = RestaurantLocation.objects.filter(category__iexact = 'veg & non-veg')
+
+	template_name = 'restaurants/restaurant_list.html'

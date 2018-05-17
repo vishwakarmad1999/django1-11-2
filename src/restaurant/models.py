@@ -3,19 +3,12 @@ from django.db import models
 # Create your models here.
 
 class RestaurantLocation(models.Model):
-	name 			= models.CharField(max_length = 120)
+	name 			= models.CharField(max_length = 120, help_text = "Mandatory")
 	location 		= models.CharField(max_length = 120, null = True, blank = True)
+	category		= models.CharField(max_length = 120, null = True, blank = True)
+	timestamp		= models.DateTimeField(auto_now_add = True)
+	updated			= models.DateTimeField(auto_now = True)
 
-	FRESHMAN = 'FR'
-	SOPHOMORE = 'SO'
-	JUNIOR = 'JR'
-	SENIOR = 'SR'
+	def __str__(self):
+		return self.name
 
-	YEAR_IN_SCHOOL_CHOICES = (
-		(FRESHMAN, 'Freshman'),
-		(SOPHOMORE, 'Sophomore'),
-		(JUNIOR, 'Junior'),
-		(SENIOR, 'Senior'),
-	)
-
-	year_in_school = models.CharField(max_length = 2, choices = YEAR_IN_SCHOOL_CHOICES, default = FRESHMAN, )

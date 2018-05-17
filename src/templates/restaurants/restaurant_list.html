@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Restaurant | MuyPicky.com{% endblock title %}
+
+{% block content %}
+	<h1>Restaurant list</h1>
+
+	<table class="table table-hover table-borderless">
+		<thead class="table-primary">
+			<tr>
+				<td>Restaurant's Name</td>
+				<td>Location</td>
+				<td>Category</td>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for obj in object_list %}
+				<tr>
+					<td>{{ obj.name }}</td>
+					<td>{{ obj.location }}</td>
+					<td>{{ obj.category }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock content %}
