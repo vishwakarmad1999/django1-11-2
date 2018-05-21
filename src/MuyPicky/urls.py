@@ -15,16 +15,32 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from restaurant.views import *
+from restaurant.views import (
+        HomeView,
+        AboutView,
+        RestaurantLocationCreateView,
+        ContactView,
+        CreatorView,
+        Creator_2_View,
+        SearchRestaurantListView,
+        SearchRestaurantDetailView,
+        DishListView,
+        DishDetailView,
+        DishCreateView,
+    )
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view()),
     url(r'^about/$', AboutView.as_view()),
+    url(r'^restaurant/create/$', RestaurantLocationCreateView.as_view()),
     url(r'^contact/$', ContactView.as_view()),
-    url(r'^creator2/$', Creator_2_View.as_view()),
     url(r'^creator/$', CreatorView.as_view()),    
-    url(r'^restaurant/veg/$', VegRestaurantListView.as_view()),    
-    url(r'^restaurant/non-veg/$', NonVegRestaurantListView.as_view()),    
-    url(r'^restaurant/$', RestaurantListView.as_view()),    
+    url(r'^creator2/$', Creator_2_View.as_view()),
+    #url(r'^restaurant/(?P<slug>[-\w]+)/$', SearchRestaurantListView.as_view()),
+    url(r'^restaurant/(?P<slug>[-\w]+)/$', SearchRestaurantDetailView.as_view()),
+    url(r'^restaurant/$', SearchRestaurantListView.as_view()),
+    url(r'^dish/$', DishListView.as_view()),
+    url(r'^dish/create/$', DishCreateView.as_view()),                    
+    url(r'^dish/(?P<slug>[-\w]+)/$', DishDetailView.as_view()),
 ]

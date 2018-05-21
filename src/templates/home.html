@@ -3,19 +3,7 @@
 {% block title %}{{ block.super }} | MuyPicky.com{% endblock title %}
 
 {% block content %}
-	<h1 class="display-2">Home</h1>	
-	<h1>Django1-11-2</h1>
+	<h2 class="display-2">Home</h2>	
+	<h3>Django1-11-2</h3>
 	<p>A robust framework based on {{ lang }}</p>
-
-	{% if bool_item %}
-		Random number is <span class='text-secondary'>{{ num }}</span></p>
-	{% else %}
-		Bool is False I think
-	{% endif %}
-
-	{% for num in list %}
-		{% if num|divisibleby:"2" %}
-			{{ num }} <br>
-		{% endif %}
-	{% endfor %}
 {% endblock content %}

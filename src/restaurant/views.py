@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.db.models import Q
+from django.http import HttpResponseRedirect
 from django.views import View
-from django.views.generic import TemplateView, ListView
-from .models import RestaurantLocation
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from .models import RestaurantLocation, Dish
+from .forms import RestaurantLocationCreateForm, DishModelCreateForm
 
 # Create your views here.
 
@@ -19,12 +22,56 @@ def restaurant_listview(request):
 	return render(request, template_name, context)
 '''
 
+# def restaurant_createview(request):
+# 	form = RestaurantLocationCreateForm(request.POST or None)
+
+# 	errors = None
+
+# 	if form.is_valid():
+# 		form.save()
+
+# 		return HttpResponseRedirect('/restaurant')
+# 	else:
+# 		errors = form.errors
+
+# 	template_name = 'restaurant/form.html'
+	
+# 	context = {
+# 		"form" : form,
+# 		"errors" : errors,
+# 	}
+
+# 	return render(request, template_name, context)
+
+class RestaurantLocationCreateView(CreateView):
+	form_class = RestaurantLocationCreateForm
+	template_name = 'restaurant/form.html'
+	success_url = '/restaurant'
+
+
+class SearchRestaurantListView(ListView):
+	def get_queryset(self):
+		slug = self.kwargs.get("slug")
+
+		if slug:
+			queryset = RestaurantLocation.objects.filter(
+				Q(category__iexact = slug)
+				)
+		else:
+			queryset = RestaurantLocation.objects.all()
+
+		return queryset
+
+
+class SearchRestaurantDetailView(DetailView):
+	queryset = RestaurantLocation.objects.all()
+
 
 # Class based view (Base -> View)
 
 class HomeView(View):
 	def get(self, request, **vargs):
-		return render(request, "home.html", {})
+		return render(request, "home.html", {"lang" : "Python",})
 
 
 class ContactView(View):
@@ -64,19 +111,24 @@ class Creator_2_View(TemplateView):
 
 # Generic List View
 
-class RestaurantListView(ListView):
-	queryset = RestaurantLocation.objects.all()
+#----------------Views for Dish-------------------------
 
-	template_name = 'restaurants/restaurant_list.html'
+class DishListView(ListView):
+	template_name = 'dish/dish_list.html'
 
-
-class VegRestaurantListView(ListView):
-	queryset = RestaurantLocation.objects.filter(category__iexact = 'veg only')
-
-	template_name = 'restaurants/restaurant_list.html'
+	queryset = Dish.objects.all()
 
 
-class NonVegRestaurantListView(ListView):
-	queryset = RestaurantLocation.objects.filter(category__iexact = 'veg & non-veg')
+class DishDetailView(DetailView):
+	template_name = 'dish/dish_detail.html'
 
-	template_name = 'restaurants/restaurant_list.html'
+	queryset = Dish.objects.all()
+
+	# def get_object(self, **kwargs):
+	# 	obj = get_object_or_404(Dish, pk = self.kwargs.get("id"))
+	# 	return obj
+
+class DishCreateView(CreateView):
+	form_class = DishModelCreateForm
+	success_url = '/dish'
+	template_name = 'dish/form.html'

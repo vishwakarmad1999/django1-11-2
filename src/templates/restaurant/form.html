@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Add Restaurant | MuyPicky.com{% endblock title %}
+
+{% block content %}
+	<h2>Add Restaurant</h2>
+
+	<form method="POST" style="width : 50%; margin-left: 250px">	{% csrf_token %}
+		{{ form.as_p }}
+
+		{% if form.errors.non_field_errors %}
+			{{ errors.non_field_errors }}
+		{% endif %}
+		
+		<button class="btn waves-effect waves-light" type="	submit" name="action">Submit
+  		</button>
+	</form>
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Dish | MuyPicky.com{% endblock title %}
+
+{% block content %}
+	<h1>Dishes list <small style="font-size: 40%"><a href="/dish/create" style="text-decoration: none">Add one</a></small></h1>
+		<table class="table table-hover table-borderless">
+		<thead class="table-primary">
+			<tr>
+				<td>Dish Name</td>
+				<td>Category</td>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for obj in object_list %}
+				<tr>
+					<td><a href="/dish/{{ obj.slug }}" style="text-decoration:none">{{ obj.name }}</a></td>
+					<td>{{ obj.category }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock content %}

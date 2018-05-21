@@ -2,8 +2,7 @@
 {% block title %}Restaurant | MuyPicky.com{% endblock title %}
 
 {% block content %}
-	<h1>Restaurant list</h1>
-
+	<h1>Restaurant list <small style="font-size: 40%"><a href="/restaurant/create" style="text-decoration: none">Add one</a></small></h1>
 	<table class="table table-hover table-borderless">
 		<thead class="table-primary">
 			<tr>
@@ -16,7 +15,7 @@
 		<tbody>
 			{% for obj in object_list %}
 				<tr>
-					<td>{{ obj.name }}</td>
+					<td><a href="/restaurant/{{ obj.slug }}" style="text-decoration:none">{{ obj.name }}</a></td>
 					<td>{{ obj.location }}</td>
 					<td>{{ obj.category }}</td>
 				</tr>

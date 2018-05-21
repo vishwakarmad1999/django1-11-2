@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Dish | MuyPicky.com{% endblock title %}
+
+{% block content %}
+	<h1 class="display-4">{{ object.title }} 
+		{% if object.category == 'Veg' %}
+			<small class="text-success" style="font-size: 50%">
+		{% elif object.category == 'Non-veg' %}
+			<small class="text-danger" style="font-size: 50%">
+		{% else %}
+			<small class="text-warning" style="font-size: 50%"> 
+		{% endif %}
+			{{ object.category }}</small></h1>
+	<p>{{ object.timestamp }} , Updated {{ object.updated|timesince }} ago</p>
+{% endblock content %}
