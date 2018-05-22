@@ -1,14 +1,17 @@
 {% extends "base.html" %}
+
 {% block title %}Creator | MuyPicky.com{% endblock title %}
 
 {% block content %}
-
-<div class="jumbotron">
-	<h1 class="display-4">Harsha Mungi</h1>
-
-	<p>Harsha is Divya's best buddy and co-creator of this site along with him. She's also persuing her bachelors from Samrat Ashok Technological Institute from CSE branch. She is sound in {{ lang }} and data science.</p>
-
-	<p>Her <span class='text-danger'>love</span> for <span class="text-success">{{ lang }}</span> is this much <span class="display-1">big</span></p>
-</div>
-
+	<div class="row jumbotron">
+		<div class="col">	
+			<h1 class="display-1">Harsha</h1>
+		</div>
+		<div class="col" style="text-align: justify;">
+			<p>Harsha is Divya's best buddy and co-creator of this site along with him. She's also persuing her bachelors from Samrat Ashok Technological Institute from CSE branch. She is sound in {{ lang }} and data science.</p>
+		</div>
+		<div class="col" style="margin-top: 10px">
+			<p>Her <span class='text-danger'>love</span> for <span class="text-success">{{ lang }}</span> is this much <span class="display-1">big</span></p>
+		</div>
+	</div>
 {% endblock content %}

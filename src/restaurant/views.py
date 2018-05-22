@@ -1,3 +1,5 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from django.http import HttpResponseRedirect
@@ -8,45 +10,18 @@ from .forms import RestaurantLocationCreateForm, DishModelCreateForm
 
 # Create your views here.
 
-# Function based view
-'''	
-def restaurant_listview(request):
-	template_name = 'restaurants/restaurant_list.html'
-
-	queryset = RestaurantLocation.objects.all()
-
-	context = {
-		"object_list" : queryset
-	}
-
-	return render(request, template_name, context)
-'''
-
-# def restaurant_createview(request):
-# 	form = RestaurantLocationCreateForm(request.POST or None)
-
-# 	errors = None
-
-# 	if form.is_valid():
-# 		form.save()
-
-# 		return HttpResponseRedirect('/restaurant')
-# 	else:
-# 		errors = form.errors
-
-# 	template_name = 'restaurant/form.html'
-	
-# 	context = {
-# 		"form" : form,
-# 		"errors" : errors,
-# 	}
-
-# 	return render(request, template_name, context)
-
-class RestaurantLocationCreateView(CreateView):
+class RestaurantLocationCreateView(LoginRequiredMixin, CreateView):
 	form_class = RestaurantLocationCreateForm
 	template_name = 'restaurant/form.html'
-	success_url = '/restaurant'
+	# success_url = '/restaurant'
+	# login_url = '/login'
+
+	def form_valid(self, form):
+		instance = form.save(commit = False)
+
+		instance.owner = self.request.user
+
+		return super(RestaurantLocationCreateView, self).form_valid(form)
 
 
 class SearchRestaurantListView(ListView):
@@ -128,7 +103,38 @@ class DishDetailView(DetailView):
 	# 	obj = get_object_or_404(Dish, pk = self.kwargs.get("id"))
 	# 	return obj
 
-class DishCreateView(CreateView):
+class DishCreateView(LoginRequiredMixin, CreateView):
 	form_class = DishModelCreateForm
-	success_url = '/dish'
 	template_name = 'dish/form.html'
+	login_url = '/login'
+
+	def form_valid(self, form):
+		instance = form.save(commit = False)
+		instance.owner = self.request.user
+
+		return super(DishCreateView, self).form_valid(form)
+
+
+# @login_required()
+# def dish_createview(request):
+# 	form = DishModelCreateForm(request.POST or None)
+# 	errors = None
+
+# 	if form.is_valid():
+# 		if request.user.is_authenticated():
+# 			instance = form.save(commit = False)
+# 			instance.owner = request.user
+# 			instance.save()
+
+# 			return HttpResponseRedirect('/dish')
+# 	else:
+# 		errors = form.errors
+
+# 	context = {
+# 		"form" : form,
+# 		"errors" : errors,
+# 	}	
+
+# 	template_name = 'dish/form.html'
+
+# 	return render(request, template_name, context)

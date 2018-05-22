@@ -15,7 +15,7 @@
 		<tbody>
 			{% for obj in object_list %}
 				<tr>
-					<td><a href="/restaurant/{{ obj.slug }}" style="text-decoration:none">{{ obj.name }}</a></td>
+					<td><a href={{ obj.get_absolute_url }} style="text-decoration:none">{{ obj.name }}</a></td>
 					<td>{{ obj.location }}</td>
 					<td>{{ obj.category }}</td>
 				</tr>

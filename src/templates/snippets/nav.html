@@ -1,6 +1,6 @@
 <div class="container text-center">
-	<a href="/about">About</a>					
-	<a href="/contact">Contact</a>
-	<a href="/restaurant">Restaurant</a>
-	<a href="/dish">Dishes</a>
+	<a href={% url 'about' %}>About</a>					
+	<a href={% url 'contact' %}>Contact</a>
+	<a href={% url 'restaurant:list' %}>Restaurant</a>
+	<a href={% url 'dish:list' %}>Dishes</a>
 </div><br>

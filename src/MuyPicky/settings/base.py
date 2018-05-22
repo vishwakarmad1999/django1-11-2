@@ -51,6 +51,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'MuyPicky.urls'
+LOGIN_URL = '/login'
 
 TEMPLATES = [
     {

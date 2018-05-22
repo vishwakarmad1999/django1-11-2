@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.db import models
 from django.db.models.signals import pre_save, post_save
@@ -29,6 +30,10 @@ class RestaurantLocation(models.Model):
 		return self.name	
 
 
+	def get_absolute_url(self):
+		return reverse('restaurant:detail', kwargs={'slug' : self.slug})
+
+
 def  rl_pre_save_receiver(sender, instance, **kwargs):
  	instance.name = instance.name.capitalize()
  	instance.location = instance.location.capitalize()
@@ -41,6 +46,8 @@ pre_save.connect(rl_pre_save_receiver, sender=RestaurantLocation)
 
 
 class Dish(models.Model):
+	owner		= models.ForeignKey(User)
+
 	name 		= models.CharField(max_length = 120, validators = [validate_dish_name])
 	timestamp 	= models.DateTimeField(auto_now_add = True)
 	updated 	= models.DateTimeField(auto_now = True)
@@ -59,6 +66,10 @@ class Dish(models.Model):
 	@property
 	def title(self):
 		return self.name
+
+
+	def get_absolute_url(self):
+		return reverse('dish:detail', kwargs={'slug' : self.slug})
 
 
 def dish_pre_save_receiver(sender, instance, **kwargs):
