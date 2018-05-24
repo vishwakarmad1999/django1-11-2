@@ -24,13 +24,7 @@ from restaurant.views import (
         ContactView,
         CreatorView,
         Creator_2_View,
-        SearchRestaurantListView,
-        SearchRestaurantDetailView,
-        DishListView,
-        DishDetailView,
-        DishCreateView,
-        #dish_createview,
-    )
+        )
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -42,6 +36,5 @@ urlpatterns = [
     url(r'^creator2/$', Creator_2_View.as_view(), name = 'harsha'),
 
     url(r'^restaurant/', include('restaurant.urls', namespace = 'restaurant')),
-
-    url(r'^dish/', include('restaurant.dish_urls', namespace = 'dish'))
+    url(r'^item/', include('menu.urls', namespace = 'item')),
     ]

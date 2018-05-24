@@ -6,13 +6,17 @@
 		span {
 			font-size: 150%;
 		}
-	</style>
+	</style>	
 </head>
 <html>
 	<body>
 		<div class='container text-center'>
-		<h2 class="text-secondary"><i><a href= {% url 'home' %}
-		 style="text-decoration-line: none; color: inherit;">MuyPicky.com</a></i><small class="text-secondary" style="font-size: 40%"><a href='/admin' style="text-decoration: none;" target="_blank"> Admin</a></small></h2>
+		<h2 class="text-secondary">
+			<i>
+				<a href= {% url 'home' %}
+		 style="text-decoration-line: none; color: inherit;">MuyPicky.com</a>
+		</i>
+		<small class="text-secondary" style="font-size: 40%"><a href='/admin' style="text-decoration: none;" target="_blank"> Admin</a></small></h2>
 
 		{% include 'snippets/nav.html' %}
 			{% block content %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Menu item | MuyPicky.com{% endblock title %}
+
+{% block content %}
+	<h1 class="display-4">{{ object.name }}</h1>
+		
+	<h3>Location : <small>{{ object.restaurant.name }}</small></h3>	
+
+	<p>{{ object.location }}</p>
+	<p>{{ object.timestamp }} , Updated {{ object.updated|timesince }} ago</p>
+{% endblock content %}

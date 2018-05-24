@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Menu Items | MuyPicky.com{% endblock title %}
+
+{% block content %}
+	<h1>Menu Items <small style="font-size: 40%"><a href="" style="text-decoration: none">Add one</a></small></h1>
+
+	<ul>
+		{% for obj in object_list %}
+		<li>{{ obj.name }}</li>
+		
+		{{ if obj.contents }}
+		Contents 
+		<ol>
+			{{ for content in obj.get_contents }}
+				<li>{{ content }}</li>
+			{{ endfor }}
+		</ol>
+		{{ endif }}
+
+		{{ if obj.excludes }}
+		Excludes 
+		<ol>
+			{{ for exclude in obj.get_excludes }}
+				<li>{{ exclude }}</li>
+			{{ endfor }}
+		</ol>
+		{{ endif }}
+
+			{% endfor %}
+		</ul>
+{% endblock content %}
