@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.views import View
-from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.views.generic import TemplateView, UpdateView, ListView, DetailView, CreateView
 from .models import RestaurantLocation
 from .forms import RestaurantLocationCreateForm
 
@@ -30,23 +30,29 @@ class RestaurantLocationCreateView(LoginRequiredMixin, CreateView):
 		return context
 
 
-class SearchRestaurantListView(ListView):
+class SearchRestaurantListView(LoginRequiredMixin, ListView):
 	def get_queryset(self):
-		slug = self.kwargs.get("slug")
-
-		if slug:
-			queryset = RestaurantLocation.objects.filter(
-				Q(category__iexact = slug)
-				)
-		else:
-			queryset = RestaurantLocation.objects.all()
-
-		return queryset
+		return RestaurantLocation.objects.filter(owner = self.request.user)
 
 
-class SearchRestaurantDetailView(DetailView):
-	queryset = RestaurantLocation.objects.all()
+class SearchRestaurantDetailView(LoginRequiredMixin, DetailView):
+	def get_queryset(self):
+		return RestaurantLocation.objects.filter(owner = self.request.user)
 
+
+class RestaurantUpdateView(LoginRequiredMixin, UpdateView):
+	form_class = RestaurantLocationCreateForm
+	template_name = 'restaurant/update-detail.html'
+
+	def get_context_data(self, **kwargs):
+		context = super(RestaurantUpdateView, self).get_context_data(**kwargs)
+		name = self.get_object().name
+		context['title'] = f'Update : {name}'
+		return context
+
+
+	def get_queryset(self):
+		return RestaurantLocation.objects.filter(owner = self.request.user)
 
 # Class based view (Base -> View)
 

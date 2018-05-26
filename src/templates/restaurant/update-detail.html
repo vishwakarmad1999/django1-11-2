@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{{form.instance.title}} | MuyPicky.com{% endblock title %}
+
+{% block content %}
+	<h1 class="display-4">{{ object.title }} 
+		{% if form.instance.category == 'Veg' %}
+			<small class="text-success" style="font-size: 50%">
+		{% elif form.instance.category == 'Non-veg' %}
+			<small class="text-danger" style="font-size: 50%">
+		{% else %}
+			<small class="text-warning" style="font-size: 50%"> 
+		{% endif %}
+			{{ form.instance.category }}</small></h1>
+	<p>{{ form.instance.location }}</p>
+	<p>{{ form.instance.timestamp }} , Updated {{ form.instance.updated|timesince }} ago</p><br>
+
+<hr>
+
+<h3>Want to change it?</h3>
+{% include 'snippets/form-snippet.html' with form=form%}
+
+{% endblock content %}

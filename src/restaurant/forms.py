@@ -20,4 +20,14 @@ class RestaurantLocationCreateForm(forms.ModelForm):
 			'name',
 			'location',
 			'category',
+			'slug'
 		]
+
+	def clean_slug(self):
+		slug = self.cleaned_data.get('slug')
+
+		qs = RestaurantLocation.objects.all()
+
+		for obj in qs:
+			if slug == obj.slug:
+				forms.ValidationError('Please enter a unique slug')

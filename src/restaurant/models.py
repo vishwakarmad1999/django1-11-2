@@ -5,6 +5,7 @@ from django.db.models.signals import pre_save, post_save
 from restaurant.utils import unique_slug_generator
 from .validators import validate_location, validate_rl_name
 
+
 User = settings.AUTH_USER_MODEL
 
 # Create your models here.
@@ -32,6 +33,10 @@ class RestaurantLocation(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('restaurant:detail', kwargs={'slug' : self.slug})
+
+
+	def get_absolute_update(self):
+		return reverse('restaurant:update', kwargs={'slug' : self.slug})
 
 
 def  rl_pre_save_receiver(sender, instance, **kwargs):

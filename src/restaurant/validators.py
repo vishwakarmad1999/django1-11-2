@@ -16,4 +16,3 @@ def validate_rl_name(value):
 
 	if value == "Hello":
 		raise ValidationError("Ye kaisa name h?")
-
