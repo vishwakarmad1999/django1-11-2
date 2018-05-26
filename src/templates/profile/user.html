@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}{{ user.username }} | MuyPicky.com{% endblock title %}
+
+{% block content %}
+	<h1 class="text-secondary">{{ user.username }}</h1>
+	<hr>
+
+	<ul class="list-group">
+	{% for obj in user.restaurantlocation_set.all %}
+		<a href = '{{ obj.get_absolute_url }}' class="list-group-item list-group-item-secondary display-4" style="margin-top: 20px">{{ obj.name }}</a>
+		<ul class="list-group" style="margin-top: 2px">
+			{% for item in obj.item_set.all %}
+				<li class="list-group-item list-group-item-primary"><a href = '{{ item.get_absolute_url }}' style="margin-top: 4px;">{{ item.name }}</a>
+
+				<small style="font-size: 90%;">
+					{% for ing in item.get_contents %}
+						{{ ing }},
+					{% endfor %}
+				</small>
+
+				</li>
+			{% endfor %}
+		</ul>
+	{% endfor %}
+	</ul>
+{% endblock content %}
