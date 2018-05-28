@@ -22,9 +22,13 @@ class Item(models.Model):
 		ordering = ['-updated', '-timestamp']
 
 	def get_contents(self):
-		return self.contents.split(",")
+		contents = self.contents.split(",")
 
+		for i in range(len(contents)):
+			contents[i] = contents[i].lower()
 
+		return contents
+		
 	def get_excludes(self):
 		return self.excludes.split(",")
 

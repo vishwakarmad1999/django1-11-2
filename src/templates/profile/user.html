@@ -5,18 +5,23 @@
 	<h1 class="text-secondary">{{ user.username }}</h1>
 	<hr>
 
+	<form class="form row">
+		<input type="text" name="q" placeholder="Search" value="{{ request.GET.q }}" class="input-field col-sm-8" style="margin-left: 30px">		
+		<input type="submit" class="input-field col-sm-3 waves-effect waves-light btn" style="margin-left: 20px">		
+	</form>
+
 	<ul class="list-group">
-	{% for obj in user.restaurantlocation_set.all %}
+	{% for obj in locations %} 
 		<a href = '{{ obj.get_absolute_url }}' class="list-group-item list-group-item-secondary display-4" style="margin-top: 20px">{{ obj.name }}</a>
 		<ul class="list-group" style="margin-top: 2px">
 			{% for item in obj.item_set.all %}
-				<li class="list-group-item list-group-item-primary"><a href = '{{ item.get_absolute_url }}' style="margin-top: 4px;">{{ item.name }}</a>
+				<li class="list-group-item list-group-item-primary"><a href = '{{ item.get_absolute_url }}' style="margin-top: 4px; text-decoration: none">{{ item.name }} : </a>
 
-				<small style="font-size: 90%;">
 					{% for ing in item.get_contents %}
-						{{ ing }},
+					<small style="font-size: 90%;" class="badge badge-pill badge-info">
+						<a href='{{ request.path }}?q={{ ing }}' style="text-decoration: none; color: inherit;">{{ ing }}</a>
+					</small>
 					{% endfor %}
-				</small>
 
 				</li>
 			{% endfor %}
