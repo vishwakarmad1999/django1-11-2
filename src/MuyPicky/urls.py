@@ -11,6 +11,8 @@ from restaurant.views import (
         Creator_2_View,
         )
 
+from profiles.views import ProfileFollowToggle
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/', LoginView.as_view(), name = 'login'),
@@ -19,6 +21,8 @@ urlpatterns = [
     url(r'^contact/$', ContactView.as_view(), name = 'contact'),
     url(r'^creator/$', CreatorView.as_view(), name = 'divya'),    
     url(r'^creator2/$', Creator_2_View.as_view(), name = 'harsha'),
+    url(r'^profile-follow/$', ProfileFollowToggle.as_view(), name = 'follow'),
+
 
     url(r'^restaurant/', include('restaurant.urls', namespace = 'restaurant')),
     url(r'^item/', include('menu.urls', namespace = 'item')),

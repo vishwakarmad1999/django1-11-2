@@ -1,13 +1,22 @@
-from django.views.generic import DetailView
+from django.views.generic import DetailView, View
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, HttpResponseRedirect
 from django.http import Http404
 from restaurant.models import RestaurantLocation
 from menu.models import Item
+from .models import Profile
 
 User = get_user_model()
 
 # Create your views here.
+
+class ProfileFollowToggle(LoginRequiredMixin, View):
+	def post(self, request, **kwargs):
+		username_to_toggle = request.POST.get("username")
+		profile_, is_following = Profile.objects.toggle_follow(request.user, username_to_toggle)
+		return HttpResponseRedirect(f'/u/{profile_.user.username}')
+
 
 class ProfileDetailView(DetailView):
 	template_name = 'profile/user.html'
@@ -28,6 +37,13 @@ class ProfileDetailView(DetailView):
 		qs = RestaurantLocation.objects.filter(owner = user)
 
 		query = self.request.GET.get('q')
+
+		is_following = False
+
+		if user.profile in self.request.user.is_following.all():
+			is_following = True
+
+		context['is_following'] = is_following
 
 		if query:
 			query = query.strip()

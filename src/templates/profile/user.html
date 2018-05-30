@@ -3,6 +3,13 @@
 
 {% block content %}
 	<h1 class="text-secondary">{{ user.username }}</h1>
+
+	<span class="lead">user.profile : {{ user.profile }}</span><br>
+	<span class="lead">request.user : {{ request.user }}</span>
+
+	
+
+	<p>{% include 'profile/snippets/follow_form.html' with username=user.username is_following=is_following %}</p>
 	<hr>
 
 	<form class="form row">
@@ -18,7 +25,13 @@
 				<li class="list-group-item list-group-item-primary"><a href = '{{ item.get_absolute_url }}' style="margin-top: 4px; text-decoration: none">{{ item.name }} : </a>
 
 					{% for ing in item.get_contents %}
-					<small style="font-size: 90%;" class="badge badge-pill badge-info">
+					<small style="font-size: 90%;" 
+					{% if ing.strip == request.GET.q.strip %}
+					class="badge badge-pill badge-danger"
+					{% else %} 
+					class="badge badge-pill badge-info"
+					{% endif %}
+					>
 						<a href='{{ request.path }}?q={{ ing }}' style="text-decoration: none; color: inherit;">{{ ing }}</a>
 					</small>
 					{% endfor %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Menu Items | MuyPicky.com{% endblock title %}
+
+{% block content %}
+	<h1>Menu item <small style="font-size: 40%">
+		<a href={% url 'item:create' %} style="text-decoration: none">Add one</a></small></h1>
+	<table class="table table-hover table-borderless">
+		<thead class="table-primary">
+			<tr>
+				<td>Item's Name</td>
+				<td>Contents</td>
+				<td>Excludes</td>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for obj in object_list %}
+				<tr>	
+					<td><a style="text-decoration: none" href="{{ obj.get_absolute_url }}">{{ obj.name }}</a></td>
+					<td>{{ obj.contents }}</td>
+					{% if obj.excludes %}
+						<td>{{ obj.excludes }}</td>
+					{% else %}
+						<td>None</td>
+					{% endif %}
+				</tr>
+			{% endfor %}
+	</tbody>
+	</table>
+{% endblock content %}
