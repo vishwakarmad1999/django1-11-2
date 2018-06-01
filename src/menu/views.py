@@ -1,8 +1,12 @@
 from .forms import ItemForm
 from .models import Item
+from django.shortcuts import render
 from django.views.generic import View, ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 # Create your views here.
 
@@ -14,9 +18,18 @@ class HomeView(View):
 		user = request.user
 
 		is_following_user_ids = [x.user.id for x in user.is_following.all()]
-		qs = Item.objects.filter(user__id__in = is_following_user_ids)
+		qs = Item.objects.filter(user__id__in = is_following_user_ids, public = True).order_by("user")
 
-		return render(request, "menu/home-feed.html", {"object_list" : qs})
+		user_ = False
+		
+		if self.request.GET.get("u"):
+			searched_ = self.request.GET.get("u")
+		
+			user_ = User.objects.filter(username__icontains = searched_)
+
+		context = {"object_list" : qs, "user_" : user_}
+
+		return render(request, "menu/home-feed.html", context)
 
 class ItemListView(LoginRequiredMixin, ListView):
 

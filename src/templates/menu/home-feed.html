@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}User following feed | MuyPicky.com{% endblock title %}
+
+{% block content %}
+<form class="form row" style="width: 50%">
+
+	<input type="text" name="u" placeholder="Search for a user" class = "input-field col-sm-8" value="{{ request.GET.u }}">
+	<input type="submit" value="Search" class="input-field waves-effect waves-light btn blue col-sm-3" style="margin-left: 20px">
+</form>
+
+{% if user_ %}
+	<h3>Results</h3>
+	{% for user in user_ %}
+		<span class="lead" style="font-size: 150%;"><a href="/u/{{user}}" style="text-decoration: none">{{ user }}</a></span> 
+	{% endfor %}
+{% elif not request.GET.u %}
+{% else %}
+<span class="lead">No users found</span>
+{% endif %}
+
+	<h1>User following feed</h1>
+
+{% if object_list %}
+
+	<table class="table table-hover table-borderless">
+		<thead class="table-primary">
+			<tr>
+				<td>Item's Name</td>
+				<td>Contents</td>
+				<td>Excludes</td>
+				<td>Following</td>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for obj in object_list %}
+				<tr>	
+					<td><a style="text-decoration: none" href="/u/{{obj.user}}?q={{obj.name}}">{{ obj.name }}</a></td>
+					<td>{{ obj.contents }}</td>
+					{% if obj.excludes %}
+						<td>{{ obj.excludes }}</td>
+					{% else %}
+						<td>None</td>
+					{% endif %}
+					<td><a href="/u/{{obj.user}}">{{ obj.user }}</a></td>
+				</tr>
+			{% endfor %}
+	</tbody>
+	</table>
+{% else %}
+<h3 class="lead">Nothing to show</h3>
+{% endif %}
+{% endblock content %}

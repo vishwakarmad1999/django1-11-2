@@ -15,11 +15,11 @@
     {% endif %}
 {% endif %}
 
-<form method="post" action="{% url 'login' %}">
+<form method="post" action="{% url 'login' %}" style="width: 50%; margin-left: 250px">
 {% csrf_token %}
 {{ form.as_p }}
 
-<input type="submit" value="login" />
+<input type="submit" value="login" class="input-field waves-effect waves-light btn blue-grey lighten-1s" />
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 

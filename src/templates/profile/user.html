@@ -2,7 +2,13 @@
 {% block title %}{{ user.username }} | MuyPicky.com{% endblock title %}
 
 {% block content %}
-	<h1 class="text-secondary">{{ user.username }}</h1>
+	<h1 class="text-secondary">{{ user.username }} 
+		<small>
+			<a href="/restaurant" style="font-size: 35%; text-decoration: none;">Add restaurant </a>
+		</small>
+			<small>|</small>
+		<small><a href="/item" style="font-size: 35%;text-decoration: none">Add item</a></small>
+	</h1>
 
 	<span class="lead">user.profile : {{ user.profile }}</span><br>
 	<span class="lead">request.user : {{ request.user }}</span>

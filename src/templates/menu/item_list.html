@@ -4,6 +4,7 @@
 {% block content %}
 	<h1>Menu item <small style="font-size: 40%">
 		<a href={% url 'item:create' %} style="text-decoration: none">Add one</a></small></h1>
+{% if object_list %}
 	<table class="table table-hover table-borderless">
 		<thead class="table-primary">
 			<tr>
@@ -27,4 +28,7 @@
 			{% endfor %}
 	</tbody>
 	</table>
+{% else %}
+<span class="lead">Nothing to show</span>
+{% endif %}
 {% endblock content %}

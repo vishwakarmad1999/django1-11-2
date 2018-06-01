@@ -1,7 +1,9 @@
 from django.db import models
 from django.db.models.signals import post_save
 from django.conf import settings
-
+from .utils import code_generator
+from django.core.mail import send_mail
+from django.core.urlresolvers import reverse
 
 User = settings.AUTH_USER_MODEL
 
@@ -24,19 +26,45 @@ class ProfileManager(models.Manager):
 
 class Profile(models.Model):
 	# Relation keys
-	user		= models.OneToOneField(User)
-	followers	= models.ManyToManyField(User, related_name = 'is_following', blank = True)
+	user			= models.OneToOneField(User)
+	followers		= models.ManyToManyField(User, related_name = 'is_following', blank = True)
 	# following 	= models.ManyToManyField(User, related_name = 'following', blank = True)
 
 	# Actual keys
-	timestamp	= models.DateTimeField(auto_now_add = True)
-	updated		= models.DateTimeField(auto_now = True)
-	activated	= models.BooleanField(default = False)
+	activation_key 	= models.CharField(max_length = 120, blank = True, null = True)
+	timestamp		= models.DateTimeField(auto_now_add = True)
+	updated			= models.DateTimeField(auto_now = True)
+	activated		= models.BooleanField(default = False)
 
 	objects = ProfileManager()
 
 	def __str__(self):
 		return self.user.username
+
+	def send_activation_mail(self):
+		if not self.activated:
+			self.activation_key = code_generator()
+			self.save()
+
+			path_ = reverse('activate', kwargs = {"code" : self.activation_key})
+
+			subject 		= "Activate JustYours.com Account"
+			from_email 		= settings.DEFAULT_FROM_EMAIL
+			message			= f"Activate your account here : {path_}"
+			recipient_list 	= [self.user.email]
+			html_message	= f"<p>Activate your account <a href ='127.0.0.1:8000{path_}'>HERE</a></p>"
+
+			# sent_mail = send_mail(
+			# 		subject,
+			# 		message,
+			# 		from_email,
+			# 		recipient_list,
+			# 		fail_silently = False,
+			# 		html_message = html_message
+			# 		)
+
+			# return sent_mail
+			print(html_message)
 
 
 def post_save_user_receiver(sender, instance, created, **kwargs):
@@ -45,5 +73,6 @@ def post_save_user_receiver(sender, instance, created, **kwargs):
 
 	default_user_profile = Profile.objects.first()
 	default_user_profile.followers.add(instance) # This will add newly created user to the followers list of user with id = 1
-	profile.followers.add(default_user_profile.user)
+	#profile.followers.add(default_user_profile.user)
+
 post_save.connect(post_save_user_receiver, sender = User)

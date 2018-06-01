@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post" action="{% url 'register' %}" style="width: 50%; margin-left: 250px">{% csrf_token %}
+{{ form.as_p }}
+
+<input type="submit" value="Register" class="btn input-field waves-effect waves-light red accent-1" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+{% endblock %}
